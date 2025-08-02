@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ULFANET - Internet Murah & Cepat</title>
+  <link rel="stylesheet" href="/css/style-index.css" />
+</head>
+<body class="home">
+<header>
+  <div class="logo">
+    <img src="/image/logo.png" alt="UlfaNet" />
+  </div>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+<nav>
+  <ul>
+    <li><a href="index.html">Beranda</a></li>
+
+    <li class="has-submenu">
+      <a href="#" onclick="toggleSubmenu(this)">
+        Produk <span class="arrow">▼</span>
+      </a>
+      <ul class="dropdown">
+        <li><a href="produk.html">Voucher</a></li>
+        <li><a href="#">Paket Langganan</a></li>
+      </ul>
+    </li>
+
+    <li class="has-submenu">
+      <a href="#" onclick="toggleSubmenu(this)">
+        Tentang Kami <span class="arrow">▼</span>
+      </a>
+      <ul class="dropdown">
+        <li><a href="#">Profil</a></li>
+        <li><a href="#">Visi & Misi</a></li>
+      </ul>
+    </li>
+
+    <li class="has-submenu">
+      <a href="#" onclick="toggleSubmenu(this)">
+        Kontak <span class="arrow">▼</span>
+      </a>
+      <ul class="dropdown">
+        <li><a href="https://wa.me/6283895715431" target="_blank">WhatsApp</a></li>
+        <li><a href="https://t.me/ulfanet" target="_blank">Telegram</a></li>
+        <li><a href="mailto:admin@ulfanet.id">Email</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+</header>
+  <main>
+  <section class="hero">
+  <div class="hero-content">
+  <p class="intro-text">Selamat Datang di</p>
+  <h1 class="brand-title">ULFANET STORE</h1>
+  <p class="desc-text">Internet cepat, murah, dan mudah untuk semua orang!</p>
+  <a href="produk.html" class="cta-button">Lihat Produk Tersedia</a>
+</div>
+
+</section>
+</main>
+<footer>
+  <div class="footer-container">
+    <p>&copy; 2025 ULFANET. Semua Hak Dilindungi.</p>
+    <p>Internet Cepat & Terjangkau untuk Semua</p>
+  </div>
+</footer>
+<a href="https://wa.me/6283895715431" class="wa-float" target="_blank" aria-label="Hubungi via WhatsApp">
+  <img src="/image/wa.jpeg" alt="WhatsApp" />
+</a>
+<script>
+  function toggleMenu() {
+    const navUl = document.querySelector("nav ul");
+    navUl.classList.toggle("show");
+  }
+
+  function toggleSubmenu(link) {
+    const li = link.parentElement;
+    li.classList.toggle("open");
+    event.preventDefault(); // mencegah loncat halaman karena href="#"
+  }
+</script>
+
+
+</body>
+</html>

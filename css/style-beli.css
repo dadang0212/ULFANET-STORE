@@ -1,0 +1,343 @@
+/* ====== Reset Dasar ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: url('../image/bg2.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  line-height: 1.6;
+}
+
+/* ===== HEADER ===== */
+header {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.logo img {
+  height: 70px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+
+ul.dropdown {
+  display: none;
+  position: absolute;
+  top: 35px;
+  background-color: rgba(0, 0, 0, 0.95);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+nav ul li:hover > ul.dropdown {
+  display: block;
+}
+
+ul.dropdown li {
+  width: 150px;
+}
+
+ul.dropdown a {
+  padding: 10px;
+}
+
+/* ====== Form Section ====== */
+.form-container {
+  background-color: rgba(0, 0, 0, 0.75);
+  max-width: 500px;
+  margin: 80px auto;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #ffcc00;
+  font-size: 26px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  color: #eee;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  background-color: #222;
+  color: white;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border: 2px solid #ffcc00;
+  background-color: #111;
+}
+
+button[type="submit"] {
+  background-color: #ffcc00;
+  color: black;
+  border: none;
+  padding: 12px 20px;
+  width: 100%;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #e6b800;
+}
+
+/* ====== Info Pilihan Paket ====== */
+#paket-terpilih {
+  display: block;
+  margin-top: 15px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  color: #ffcc00;
+}
+
+nav ul {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.95);
+  padding: 10px;
+  border-radius: 8px;
+  z-index: 999;
+}
+
+nav ul.show {
+  display: flex;
+}
+
+.has-submenu ul.dropdown {
+  display: none;
+  flex-direction: column;
+  margin-top: 5px;
+}
+
+.has-submenu.open ul.dropdown {
+  display: flex;
+}
+
+input, select {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1em;
+  background-color: #f1f1f1;
+}
+
+input:focus, select:focus {
+  border: 2px solid #ffcc00;
+  background-color: #fff;
+}
+
+/* MENU TOGGLE */
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+}
+.menu-toggle {
+  display: none;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  z-index: 999;
+}
+
+.has-submenu .arrow {
+  transition: transform 0.3s;
+}
+
+.has-submenu.open .arrow {
+  transform: rotate(180deg);
+}
+
+/* RESPONSIVE: MOBILE */
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background-color: rgba(0,0,0,0.95);
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    width: 200px;
+    border-radius: 10px;
+    padding: 10px;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 768px) {
+  .has-submenu .dropdown {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    opacity: 0;
+    position: static;
+    background-color: rgba(0, 0, 0, 0.9);
+    margin-top: 5px;
+    padding-left: 10px;
+    border-left: 2px solid orange;
+  }
+
+  .has-submenu.open .dropdown {
+    max-height: 500px; /* cukup besar untuk semua submenu */
+    opacity: 1;
+  }
+
+  .has-submenu > a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.has-submenu .arrow {
+  transition: transform 0.3s;
+}
+
+.has-submenu.open .arrow {
+  transform: rotate(180deg);
+}
+
+/* ===== ANIMASI SUBMENU ===== */
+ul.dropdown {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.has-submenu:hover > ul.dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+nav {
+  overflow: visible;
+}
+
+input, select {
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid #444;
+  background-color: #222;
+  color: white;
+  transition: 0.3s ease;
+}
+input:focus, select:focus {
+  border-color: #f0c400;
+  outline: none;
+  box-shadow: 0 0 5px #f0c400;
+}
+
+button {
+  background-color: #ffc107;
+  color: black;
+  font-weight: bold;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+button:hover {
+  background-color: #e6b800;
+  transform: scale(1.03);
+}
+
+.voucher-terpilih {
+  margin-top: 15px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  color: #ffc107;
+  border: 1px solid #ffc107;
+}
+
+select, input {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px;
+  background-color: #222;
+  color: white;
+  border-radius: 8px;
+  border: 2px solid #333;
+  font-size: 16px;
+}
+
+select:focus, input:focus {
+  border-color: #ffc107;
+  box-shadow: 0 0 5px #ffc107;
+}

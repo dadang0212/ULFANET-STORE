@@ -1,0 +1,250 @@
+/* ========== RESET DASAR & FONTS ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: url('/image/bg2.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+/* ========== JUDUL ========== */
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+  position: relative;
+  display: inline-block;
+}
+
+h2.glow-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  height: 3px;
+  width: 100%;
+  background-color: orange;
+}
+
+/* ========== LOGO E-WALLET ========== */
+.e-wallet-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.e-wallet-logos img {
+  height: 60px;
+  background: white;
+  padding: 8px 12px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.e-wallet-logos img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+/* ========== KOTAK REKENING ========== */
+.rekening {
+  display: none;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid orange;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 400px;
+  margin: 20px auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* ========== JUDUL QRIS DI ATAS GAMBAR ========== */
+.rekening-title {
+  font-weight: bold;
+  margin-bottom: 12px;
+  font-size: 15px;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ========== QRIS ========== */
+.logo-qris {
+  display: block;
+  margin: 0 auto 16px;
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 1 / 1;
+  background: white;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  object-fit: contain;
+}
+
+/* ========== LOGO DOMPET / BANK LAIN ========== */
+.logo-pembayaran {
+  display: block;
+  margin: 0 auto 15px;
+  background: white;
+  padding: 10px;
+  border-radius: 8px;
+  max-height: 90px;
+  max-width: 100%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+/* ========== TEKS REKENING ========== */
+.rekening-text {
+  font-size: 14px;
+  line-height: 1.5;
+  color: white;
+  white-space: pre-line;
+}
+
+.rekening-text strong {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.rekening-text em {
+  font-style: italic;
+  font-weight: 600;
+  display: block;
+  margin-top: 5px;
+}
+
+/* ========== FORM UPLOAD ========== */
+form {
+  margin-top: 30px;
+}
+
+.custom-upload {
+  display: inline-block;
+  background-color: orange;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.custom-upload:hover {
+  background-color: #ffaa00;
+}
+
+.custom-upload input[type="file"] {
+  display: none;
+}
+
+#file-name {
+  margin-top: 10px;
+  font-style: italic;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.submit-btn {
+  margin-top: 15px;
+  background-color: #00b894;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #019875;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 600px) {
+  .e-wallet-logos img {
+    height: 45px;
+    padding: 6px;
+  }
+
+  .custom-upload,
+  .submit-btn {
+    width: 90%;
+  }
+
+  .rekening {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .logo-qris {
+    max-width: 250px;
+    padding: 10px;
+  }
+}
+
+/* === Efek Glow pada QR & Logo Pembayaran === */
+.logo-qris,
+.logo-pembayaran {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo-qris:hover,
+.logo-pembayaran:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+/* === Efek Fade-In Saat Ganti Rekening === */
+.rekening {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === Styling Judul Lebih Menarik === */
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 2px 2px 6px rgba(255, 165, 0, 0.5);
+  margin-bottom: 25px;
+}
+
+/* === Tombol Lebih Soft & Smooth === */
+.custom-upload,
+.submit-btn {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.custom-upload:hover,
+.submit-btn:hover {
+  transform: scale(1.03);
+}

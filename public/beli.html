@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Form Pembelian</title>
+  <link rel="stylesheet" href="/css/style-beli.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <a href="/index.html"><img src="/image/logo.png" alt="ULFANET Logo"></a>
+  </div>
+
+  <div class="menu-toggle">☰</div>
+
+  <nav>
+    <ul id="menuList">
+      <li><a href="/public/index.html">Beranda</a></li>
+      <li class="has-submenu">
+        <a href="#">Produk ▼</a>
+        <ul class="dropdown">
+          <li><a href="/public/produk.html">Voucher</a></li>
+          <li><a href="#">Paket Langganan</a></li>
+        </ul>
+      </li>
+      <li class="has-submenu">
+        <a href="#">Tentang Kami ▼</a>
+        <ul class="dropdown">
+          <li><a href="/tentang.html#profil">Profil</a></li>
+          <li><a href="/tentang.html#tim">Tim</a></li>
+        </ul>
+      </li>
+      <li class="has-submenu">
+        <a href="#">Kontak ▼</a>
+        <ul class="dropdown">
+          <li><a href="https://wa.me/6283895715431" target="_blank">WhatsApp</a></li>
+          <li><a href="https://t.me/ulfanet" target="_blank">Telegram</a></li>
+          <li><a href="mailto:admin@ulfanet.id">Email</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="form-container">
+    <h2>Beli Voucher WiFi</h2>
+    <form action="/public/upload.html" method="post">
+      <div class="form-group">
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" name="nama" required />
+      </div>
+
+      <div class="form-group">
+        <label for="wa">Nomor WhatsApp:</label>
+        <input type="text" id="wa" name="wa" required />
+      </div>
+
+      <div class="form-group">
+        <label for="wilayah">Pilih Wilayah:</label>
+        <select id="wilayah" name="wilayah" required>
+          <option value="johor">Johor</option>
+          <option value="bungku">Bungku</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="paket">Pilih Paket:</label>
+        <select id="paket" name="paket" required>
+          <option value="Paket 1 Jam - Rp3.000">Paket 1 Jam – Rp3.000</option>
+          <option value="Paket 2 Jam - Rp5.000">Paket 2 Jam – Rp5.000</option>
+          <option value="Paket 3 Hari - Rp10.000">Paket 2GB (3 Hari) – Rp10.000</option>
+        </select>
+      </div>
+
+      <button type="submit">Lanjut Bayar</button>
+    </form>
+
+    <p>Voucher yang dipilih: <span id="paket-terpilih">Paket 1 Jam - Rp3.000</span></p>
+  </div>
+</main>
+
+<script>
+  const toggle = document.querySelector('.menu-toggle');
+  const menu = document.getElementById('menuList');
+
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('show');
+    });
+  }
+
+  document.querySelectorAll('.has-submenu > a').forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      this.parentElement.classList.toggle('open');
+    });
+  });
+
+  const paketSelect = document.getElementById('paket');
+  const paketTerpilih = document.getElementById('paket-terpilih');
+
+  paketSelect.addEventListener('change', function () {
+    paketTerpilih.textContent = paketSelect.value;
+  });
+</script>
+
+</body>
+</html>

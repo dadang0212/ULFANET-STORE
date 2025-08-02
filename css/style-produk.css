@@ -1,0 +1,374 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ===== RESET DASAR ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: url('../image/bg2.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+}
+
+.judul-section {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+  margin-top: 10px;   /* INI yang mengatur jarak ke atas */
+  margin-bottom: 20px;
+}
+
+/* ===== HEADER ===== */
+header {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.logo img {
+  height: 60px;
+}
+
+/* NAVIGATION MENU */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+
+/* DROPDOWN */
+.has-submenu {
+  position: relative;
+}
+
+ul.dropdown {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  position: absolute;
+  top: 35px;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  border-radius: 5px;
+  overflow: hidden;
+  flex-direction: column;
+  z-index: 99;
+}
+
+.has-submenu:hover > ul.dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+ul.dropdown li {
+  width: 180px;
+}
+
+ul.dropdown a {
+  padding: 10px;
+  display: block;
+}
+
+/* PANAH ▼ */
+.has-submenu .arrow {
+  transition: transform 0.3s;
+}
+
+.has-submenu.open .arrow {
+  transform: rotate(180deg);
+}
+
+/* MENU TOGGLE */
+.menu-toggle {
+  display: none;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  z-index: 999;
+}
+
+/* RESPONSIVE: MOBILE */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.95);
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    width: 220px;
+    padding: 10px;
+    border-radius: 10px;
+    display: none;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  .has-submenu .dropdown {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    opacity: 0;
+    position: static;
+    margin-top: 5px;
+    padding-left: 10px;
+    border-left: 2px solid orange;
+  }
+
+  .has-submenu.open .dropdown {
+    max-height: 500px;
+    opacity: 1;
+  }
+
+  .has-submenu > a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* ===== KONTEN UTAMA ===== */
+.produk-container {
+  max-width: 1200px;
+  margin: 5px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.produk-container h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  margin-bottom: 30px;
+}
+
+/* ===== PRODUK GRID ===== */
+.produk-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.produk-card {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  color: #f1f1f1; /* Lebih cerah dari putih murni */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.produk-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+
+.produk-card img {
+  max-width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.produk-card h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.produk-card p {
+  font-size: 1rem;
+  color: #dcdcdc;
+  margin-bottom: 15px;
+}
+
+.btn-beli {
+  display: inline-block;
+  background: linear-gradient(135deg, #ffca28, #ffc400);
+  color: #000;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-beli::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
+}
+
+.btn-beli:hover::before {
+  left: 100%;
+}
+
+.btn-beli:hover {
+  background: linear-gradient(135deg, #f9b000, #ff9800);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+
+/* ===== VOUCHER SECTION ===== */
+.voucher-section {
+  padding: 60px 20px;
+  text-align: center;
+  color: white;
+}
+
+.voucher-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
+}
+
+.voucher-section h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 100%;
+  height: 4px;
+  background-color: #ffc400;
+  border-radius: 2px;
+  animation: growLine 1s ease-in-out;
+}
+
+@keyframes growLine {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.voucher-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.voucher-card {
+  background-color: rgba(0, 0, 0, 0.65);
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+  padding: 20px;
+  width: 280px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.voucher-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(255, 193, 7, 0.5);
+}
+
+.voucher-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.voucher-card h3 {
+  font-size: 1.2rem;
+  margin: 10px 0 5px;
+}
+
+.voucher-card p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.voucher-card .btn {
+  display: inline-block;
+  background-color: #ffc400;
+  color: #000;
+  padding: 10px 24px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.voucher-card .btn:hover {
+  background-color: #e6b200;
+}
+
+/* Responsive Grid */
+@media (max-width: 768px) {
+  .voucher-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.btn-beli {
+  background-color: #ffc400;
+  color: #000;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.btn-beli:hover {
+  background-color: #e6a700;
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
